@@ -1,4 +1,5 @@
 const { Thought, User, Reaction } = require('../models');
+const { Types } = require('mongoose');
 const ThoughtController = {
     async getAllThoughts(req, res) {
         try {
@@ -9,9 +10,9 @@ const ThoughtController = {
         }
     },
 
-    async getThoughtById(req, res) {
+    async getThoughtsById(req, res) {
         try {
-            const thought = await Thought.findById(req.params.id);
+            const thought = await Thought.findOne({ _id: Types.ObjectId(req.params.thoughtId) });
             if (!thought) {
                 res.status(404).json({ message: 'Thought not found' });
             } else {
@@ -26,6 +27,15 @@ const ThoughtController = {
         try {
             const thought = await Thought.create(req.body);
             res.status(201).json(thought);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    async deleteThought(req, res) {
+        try {
+            const thought = await Thought.findByIdAndDelete({ _id: req.params.id });
+            res.status(200).json(thought);
         } catch (err) {
             res.status(500).json(err);
         }
