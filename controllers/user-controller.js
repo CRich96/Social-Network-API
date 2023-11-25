@@ -15,18 +15,7 @@ const UserController = {
       .catch(err => res.status(500).json(err));
   },
 
-  // getUserById(req, res) {
-  //   console.log('Fetching user with ID:', req.params.id);
-  //   User.findById(req.params.id)
-  //     .then(userData => {
-  //       console.log('User data:', userData);
-  //       res.json(userData);
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //       res.status(500).json(err);
-  //     });
-  // },
+
 
   // 3. Create a user
   createUser(req, res) {
