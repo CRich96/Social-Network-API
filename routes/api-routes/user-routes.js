@@ -1,3 +1,4 @@
+// Import Necessary dependencies and controllers.
 const router = require('express').Router();
 const {
     getAllUsers,
@@ -12,9 +13,11 @@ const {
 
   // GET and POST all users
 router.route('/').get(getAllUsers).post(createUser);
-
+// GET user id, PUT update user id and DELETE user by id
 router.route('/:userId').get(getUserById).put(updateUserById).delete(deleteUserById);
 
-// Add and Delete Friends
+// Post and Delete Friends
 router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
   
+
+module.exports = router;
