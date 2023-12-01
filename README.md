@@ -42,3 +42,8 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 5. Tested API endpoints using Insomnia.
 6. Worked with HTTP requests and JSON formatted data.
 7. Utilized environment variables and .env files for sensitive data.
+
+
+## Insomnia 
+
+[Link](./insomnia.mp4)
